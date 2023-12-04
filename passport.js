@@ -12,8 +12,8 @@ const passport = require('passport')
 // const GOOGLE_CLIENT_ID = "20848....."
 // const GOOGLE_CLIENT_SECRET = "GOCSP...."
 
-// const GITHUB_CLIENT_ID = "2fb17...."
-// const GITHUB_CLIENT_SECRET = "3be2e2...."
+const GITHUB_CLIENT_ID = "b0c9b515bb239eb29a28"
+const GITHUB_CLIENT_SECRET = "3d6a075807c2ce0c382f6f747199d3db5b1c89ff"
 
 
 // passport.use(new GoogleStrategy({
@@ -32,16 +32,16 @@ const passport = require('passport')
 // ));
 
 
-// passport.use(new GitHubStrategy({
-//     clientID: GITHUB_CLIENT_ID,
-//     clientSecret: GITHUB_CLIENT_SECRET,
-//     callbackURL: "/auth/github/callback"
-//   },
-//   function(accessToken, refreshToken, profile, done) {
-//     console.log(profile)
-//     done(null, profile)
-//   }
-// ));
+passport.use(new GitHubStrategy({
+		clientID: GITHUB_CLIENT_ID,
+		clientSecret: GITHUB_CLIENT_SECRET,
+		callbackURL: "/auth/github/callback"
+	},
+	function(accessToken, refreshToken, profile, done) {
+		console.log(profile)
+		done(null, profile)
+	}
+));
 
 
 passport.serializeUser((user, done) => {
